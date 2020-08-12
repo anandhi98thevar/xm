@@ -10,7 +10,7 @@ th,td {
 }
 </style>
 <body>
-
+<h2>Travels</h2>
 
 <button type="button" onclick="loadXMLDoc()">
 Get my Travels</button>
@@ -25,25 +25,23 @@ function loadXMLDoc() {
       myFunction(this);
     }
   };
-  xmlhttp.open("GET", ""https://anandhi98thevar.github.io/xm/note.xml", true);
+  xmlhttp.open("GET", "https://anandhi98thevar.github.io/xm/note.xml", true);
   xmlhttp.send();
 }
 
 function myFunction(xml) {
   var i;
   var xmlDoc = xml.responseXML;
-  var table="<tr><th>TravelsName</th><th>Destinations</th><th>TripsAvailable</th><th>Price</th></tr>";
-  var x = xmlDoc.getElementsByTagName("Address");
+  var table="<tr><th>PackagesName</th><th>Includes</th><th>Prices</th></tr>";
+  var x = xmlDoc.getElementsByTagName("Pack");
   for (i = 0; i <x.length; i++) {
     table += "<tr><td>" +
-    x[i].getElementsByTagName("TravelsName")[0].childNodes[0].nodeValue +
+    x[i].getElementsByTagName("PackagesName")[0].childNodes[0].nodeValue +
     "</td><td>" +
-	x[i].getElementsByTagName("Destination")[0].childNodes[0].nodeValue +
-    "</td><td>" +
-	x[i].getElementsByTagName("TripsAvailable")[0].childNodes[0].nodeValue +
-    "</td><td>" +
-    x[i].getElementsByTagName("Price")[0].childNodes[0].nodeValue +
+    x[i].getElementsByTagName("Includes")[0].childNodes[0].nodeValue +
     "</td></tr>";
+	
+	
   }
   document.getElementById("demo").innerHTML = table;
 }
